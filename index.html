@@ -13,22 +13,71 @@
 </head>
 
 <body>
-<h1 class="container-fluid bg-3 text-center">
+<script>// When the user scrolls down 50px from the top of the document, resize the header's font size
+//window.onscroll = function() {scrollFunction()};
+function disableScroll() { 
+    // Get the current page scroll position 
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop; 
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft, 
+  
+        // if any scroll is attempted, set this to the previous value 
+        window.onscroll = function() { 
+            window.scrollTo(scrollLeft, scrollTop); 
+        }; 
+} 
+  
+function enableScroll() { 
+    window.onscroll = function() {}; 
+} 
+
+
+function fn1() {
+	document.getElementById("h2").style.fontSize = "25px";
+	document.getElementById("up").style.visibility = "hidden";
+	document.getElementById("up").style.fontsize = "0px";
+	document.getElementById("up2").style.fontsize = "0px";
+	document.getElementById("header").style.margin = "0px";
+	document.getElementById("header").style.padding = "0px";
+}
+
+/*function scrollFunction() {
+  if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+    document.getElementById("header").style.fontSize = "0px";
+    setTimeout(fn1, 300);
+  } else {
+    document.getElementById("h2").style.fontSize = "0px";
+    document.getElementById("header").style.fontSize = "90px";
+  }
+}*/
+function fn2() {
+	document.getElementById("header").style.fontSize = "0px";
+	document.getElementById("header").style.visibility = "hidden";
+	enableScroll();
+	setTimeout(fn1, 300);
+}
+
+disableScroll();
+</script>
+
+<h1 class="text-center">
+	<div id="up"><br><br></div>
+	<button id="header" style="text-align: center;" onclick="fn2()">PHYSCI 70: Documentation<br>Lauren Cooke<br>Spring 2021</button>
+	<div id="up2"><br><br><br><br><br></div>
 		<div class="row no-gutters">
-    		<div class="col-lg-4" style="text-align: left; margin-top: 40px;">
+    		<div class="col-lg-4" style="text-align: left; margin-top: 1px;">
  				<a href="./index.html">Home</a>
  				<a href="http://jsfiddle.net/xkfpsyj6/38/">About</a>
  				<a href="http://jsfiddle.net/xkfpsyj6/38/">Project</a>
 			</div>
-			<div class="col-lg-4" style="text-align: center; margin-top: 40px;">
-				<h3>PHYSCI 70: Documentation</h3>
+			<div class="col-lg-4" style="text-align: center; margin-top: 1px;">
+ 				<div id=h2>PHYSCI 70: Documentation<br>Lauren Cooke</div>
  			</div>
- 			<div class="col-lg-4" style="text-align: right; margin-top: 40px;">
+ 			<div class="col-lg-4" style="text-align: right; margin-top: 1px;">
  				<a href="./01_intro/index.html">This Week</a>
  				<filler>Spring 2021</filler>
  			</div>
  		</div>
- </h1>
+</h1>
 
   <div class="row">
     <div class="col-sm-4">
@@ -54,7 +103,7 @@
       <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
       <h4><a href=''>Broken Link</a></h4>
     </div>
-    <div class="col-sm-4">
+    <div id="c" class="col-sm-4">
       <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
       <h4><a href=''>Broken Link</a></h4>
     </div>

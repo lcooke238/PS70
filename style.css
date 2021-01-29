@@ -1,17 +1,54 @@
-h3 {
+#header {
   font-family: 'Titillium Web', sans-serif;
-  display: inline;
+  margin: 150px 10px;
+  padding: 20px;
+  text-align: center !important; /* Centered text */
   color: white;
-  padding: 15px;
-  font-size: 25px;
+  font-size: 90px;
+  font-weight: bold;
+  transition: 0.2s;
+  
  
 }
 
+button {
+   font-family: 'Titillium Web', sans-serif;
+   transition: 0.3s;
+   background-color: Transparent;
+   background-repeat:no-repeat;
+   border-radius: 8px;
+   border: none;
+}
+
+button:hover, button:active {
+   color: black !important;
+font-family: 'Titillium Web', sans-serif;
+   border-radius: 8px;
+   background-color: #ddd;
+}
+
+up {
+transition: none;
+}
+
+
+#h2 {
+  font-family: 'Titillium Web', sans-serif;
+  padding: 0px !important;
+  display: inline;
+  text-align: center; /* Centered text */
+  color: white;
+  font-size: 0px;
+  font-weight: bold;
+}
+
 h1 {
+  vertical-align: top;
   font-family: 'Titillium Web', sans-serif;
   font-size: 15px;
-  height: 750px;
-  margin: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 5px;
 }
 
 a:link, a:visited {
