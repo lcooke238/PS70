@@ -2,8 +2,10 @@ h3 {
   font-family: 'Titillium Web', sans-serif;
   display: inline;
   color: white;
+  text-align: center;
   padding: 15px;
-  font-size: 25px;
+  font-size: 90px;
+  font-weight: bold;
  
 }
 
@@ -26,6 +28,59 @@ a:link, a:visited {
   display: inline-block;
 }
 
+button.big {
+  font-family: 'Titillium Web', sans-serif;
+  position: relative;
+   text-align: center;
+   border: none;
+   color: black;
+   display: block;
+   background-color: transparent !important;
+   transition: 0.5s;
+}
+
+button.big:hover, button.big:active {
+   font-family: 'Titillium Web', sans-serif;
+   position: relative;
+   text-align: center;
+   background-color: transparent !important;
+   color: black;
+   display: block;
+   transition: 0.5s;
+}
+
+.container {
+ width: 100%;
+ position:relative;
+}
+
+.container:hover img{  
+  opacity: 0.45;
+  transition: 0.2s;
+ }
+
+.container:hover .centered {
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.container:hover {
+   font-size: 30px;
+   transition: 0.2s;
+}
+
+.centered:hover + img{
+   opacity: 0.45;
+  transition: 0.2s;
+}
+
+.centered:hover {
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
 a:hover, a:active {
    font-family: 'Titillium Web', sans-serif;
     background-color: #916683;
@@ -41,21 +96,43 @@ diva {
 }
 
 body {
-    font: 20px Montserrat, sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+    color: white;
     line-height: 1.8;
-    color: black;
-    padding-top: 2000px;
-    background-image: url('./CharlesSunset.png');
+    background-image: 
+       linear-gradient(
+      rgba(60, 53, 51, 0.9), 
+      rgba(60, 53, 51, 0.9)),
+       url('../CharlesSunset.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
   
-p {font-size: 16px;}
+p {font-size: 40px;}
 .margin {margin-bottom: 15px;}
 
 .container-fluid {
   padding: 30px;
   padding-bottom: 70px;
+}
+
+img {
+  text-align: center;
+  height: auto;
+  margin: 5px;
+  border: 10px solid white;
+  padding: 10px;
+}
+
+img:hover {
+  text-align: center; 
+  height: auto;
+  margin: 5px;
+  border: 10px solid white;
+  padding: 10px;
+  opacity: 0.45;
+  background-opacity: 1;
 }
 
 .borderexample {
@@ -102,5 +179,7 @@ border-color:#725B56;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-size: 0px;
+  color: white;
 }
 

@@ -13,36 +13,56 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../01_intro/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <h3>Lauren Cooke</h3>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div> 
+
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-sm-4">
+      <div class="container">
+            <button class="big" onclick="LutherStop()">
+                <img src="./portrait.png" class="img-responsive margin" style="width:100%; height: auto;" alt="Lauren Portrait">
+                <div class = "centered">Up Next: LUTHER</div>
+            </button>
+        </div>
+    </div>
+    <div class="col-lg-8">
+      <p> Harvard College Class of 2024 <br> Potential Computer Science Concentrator <br> Email: lcooke@college.harvard.edu <br> Hometown: Rockville, MD <br> </p>
+      <p style="font-size: 40px; text-align: center;"> <br> I'm looking forward to getting to know everyone in the class! <br>Click on the image or scroll down to get to know a bit more about me.</p>
+    </div>
+  </div>   
+
 
   <div class="row">
     
       <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
       <p> And here is a	<a href='../index.html'>link</a>.
 
       </p>
