@@ -1,0 +1,106 @@
+h3 {
+  font-family: 'Titillium Web', sans-serif;
+  display: inline;
+  color: white;
+  padding: 15px;
+  font-size: 25px;
+ 
+}
+
+h1 {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
+  height: 750px;
+  margin: 0px;
+}
+
+a:link, a:visited {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #725B56;
+  color: white;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+   font-family: 'Titillium Web', sans-serif;
+    background-color: #916683;
+}
+
+filler {
+  font-family: 'Titillium Web', sans-serif;
+  margin: 7px;
+}
+
+diva {
+  display: inline;
+}
+
+body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: black;
+    padding-top: 2000px;
+    background-image: url('./CharlesSunset.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+  
+p {font-size: 16px;}
+.margin {margin-bottom: 15px;}
+
+.container-fluid {
+  padding: 30px;
+  padding-bottom: 70px;
+}
+
+.borderexample {
+border-style:solid;
+border-color:#725B56;
+}
+
+.boxed {
+  border: 3px solid #725B56 ;
+}
+
+.center {
+ text-align: center
+}
+
+
+#navbar {
+ 
+  position: fixed; /* Make it stick/fixed */
+  top: 0; /* Stay on top */
+  width: 100%; /* Full width */
+  transition: top 0.3s; /* Transition effect when sliding down (and up) */
+}
+
+/* Style the navbar links */
+#navbar a {
+  font-family: 'Titillium Web', sans-serif;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+#navbar a:hover {
+  font-family: 'Titillium Web', sans-serif;
+  background-color: #ddd;
+  color: black;
+}
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

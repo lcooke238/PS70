@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PHYSCI 70: Intro to Digital Fabrication </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;600&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="./style.css" rel="stylesheet">
+</head>
+<body>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+
+<div class="container-fluid">
+  <h3>Week 1: Introduction </h3> <br> 
+  <div id="navbar">
+  <a href="../index.html">Home</a>
+  <a href="#news">About</a>
+  <a href="#contact">Project</a>
+  <a href="#contact">This Week</a>
+  </div>
+
+  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+
+  <div class="row">
+    
+      <p> Here is an image: </p>
+
+      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
+
+      <p> And here is a	<a href='../index.html'>link</a>.
+
+      </p>
+   
+  </div>
+
+ 
+  
+  
+</div>
+
+</body>
+</html>
