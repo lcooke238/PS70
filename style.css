@@ -173,7 +173,7 @@ body {
        linear-gradient(
       rgba(0, 0, 0, 0.45), 
       rgba(0, 0, 0, 0.45)),
-       url('./CharlesSunset.png');
+       url('./CharlesSunset.PNG');
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
