@@ -4,9 +4,13 @@ h3 {
   color: white;
   text-align: center;
   padding: 15px;
-  font-size: 90px;
+  font-size: 6vw;
   font-weight: bold;
  
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -19,7 +23,7 @@ h1 {
 a:link, a:visited {
   font-family: 'Titillium Web', sans-serif;
   background-color: #725B56;
-  color: white;
+  color: white !important;
   border-radius: 8px;
   margin: 15px;
   padding: 5px 10px;
@@ -28,7 +32,7 @@ a:link, a:visited {
   display: inline-block;
 }
 
-button.big {
+a.big:link, a:visited {
   font-family: 'Titillium Web', sans-serif;
   position: relative;
    text-align: center;
@@ -39,7 +43,7 @@ button.big {
    transition: 0.5s;
 }
 
-button.big:hover, button.big:active {
+a.big:hover, a.big:active {
    font-family: 'Titillium Web', sans-serif;
    position: relative;
    text-align: center;
@@ -83,7 +87,8 @@ button.big:hover, button.big:active {
 
 a:hover, a:active {
    font-family: 'Titillium Web', sans-serif;
-    background-color: #916683;
+    background-color: #ddd;
+   color: black;
 }
 
 filler {
@@ -104,12 +109,13 @@ body {
        linear-gradient(
       rgba(60, 53, 51, 0.9), 
       rgba(60, 53, 51, 0.9)),
-       url('../CharlesSunset.png');
+       url('../CharlesSunset.PNG');
   background-repeat: no-repeat;
+  background-size: 150%;
   background-attachment: fixed;
   }
   
-p {font-size: 40px;}
+p {font-size: 2vw;}
 .margin {margin-bottom: 15px;}
 
 .container-fluid {
@@ -152,6 +158,8 @@ border-color:#725B56;
 #navbar {
  
   position: fixed; /* Make it stick/fixed */
+  background-color: rgba(60, 53, 51, 0.9);
+  z-index: 2;
   top: 0; /* Stay on top */
   width: 100%; /* Full width */
   transition: top 0.3s; /* Transition effect when sliding down (and up) */
@@ -166,12 +174,14 @@ border-color:#725B56;
   text-align: center;
   padding: 5px 10px;
   text-decoration: none;
+  z-index: 2;
 }
 
 #navbar a:hover {
   font-family: 'Titillium Web', sans-serif;
   background-color: #ddd;
   color: black;
+  z-index: 2;
 }
 /* Centered text */
 .centered {
@@ -182,4 +192,3 @@ border-color:#725B56;
   font-size: 0px;
   color: white;
 }
-

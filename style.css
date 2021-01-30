@@ -175,6 +175,7 @@ body {
       rgba(0, 0, 0, 0.45)),
        url('./CharlesSunset.PNG');
   background-repeat: no-repeat;
+  background-size: 150%;
   background-attachment: fixed;
   }
   
