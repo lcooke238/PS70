@@ -34,10 +34,15 @@ function enableScroll() {
 function fn1() {
 	document.getElementById("h2").style.fontSize = "25px";
 	document.getElementById("up").style.visibility = "hidden";
+	document.getElementById("up2").style.visibility = "hidden";
 	document.getElementById("up").style.fontsize = "0px";
 	document.getElementById("up2").style.fontsize = "0px";
 	document.getElementById("header").style.margin = "0px";
 	document.getElementById("header").style.padding = "0px";
+	var myobj = document.getElementById("up");
+     myobj.remove();
+     var myobj2 = document.getElementById("up2");
+     myobj2.remove();
 }
 
 /*function scrollFunction() {
@@ -56,63 +61,201 @@ function fn2() {
 	setTimeout(fn1, 300);
 }
 
+//Get the button:
+mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
 disableScroll();
 </script>
 
+
 <h1 class="text-center">
-	<div id="up"><br><br></div>
+	<div id="up"><br><br><br><br></div>
 	<button id="header" style="text-align: center;" onclick="fn2()">PHYSCI 70: Documentation<br>Lauren Cooke<br>Spring 2021</button>
-	<div id="up2"><br><br><br><br><br></div>
+	<div id="up2"><br><br><br><br><br><br></div>
 		<div class="row no-gutters">
     		<div class="col-lg-4" style="text-align: left; margin-top: 1px;">
- 				<a href="./index.html">Home</a>
- 				<a href="http://jsfiddle.net/xkfpsyj6/38/">About</a>
- 				<a href="http://jsfiddle.net/xkfpsyj6/38/">Project</a>
+ 				<a class="small" href="./index.html">Home</a>
+ 				<a class="small" href="http://jsfiddle.net/xkfpsyj6/38/">About</a>
+ 				<a class="small" href="http://jsfiddle.net/xkfpsyj6/38/">Project</a>
 			</div>
 			<div class="col-lg-4" style="text-align: center; margin-top: 1px;">
  				<div id=h2>PHYSCI 70: Documentation<br>Lauren Cooke</div>
  			</div>
  			<div class="col-lg-4" style="text-align: right; margin-top: 1px;">
- 				<a href="./01_intro/index.html">This Week</a>
+ 				<a class="small" href="./01_intro/index.html">This Week</a>
  				<filler>Spring 2021</filler>
  			</div>
  		</div>
 </h1>
 
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href='./01_intro/index.html'>Week 1: Introduction</a></h4>
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 1: Introduction</div>
+         	</a>
+     	</div>
     </div>
-    <div class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href=''>Broken Link</a></h4>
-    </div>
-    <div class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href=''>Broken Link</a></h4>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href=''>Broken Link</a></h4>
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 2: 2D Design and Cutting</div>
+         	</a>
+     	</div>
     </div>
-    <div class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href=''>Broken Link</a></h4>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 3: Hand Tools and Fabrication</div>
+         	</a>
+     	</div>
     </div>
-    <div id="c" class="col-sm-4">
-      <img src="./01_intro/sew.png" class="img-responsive margin" style="width:100%" alt="Sew">
-      <h4><a href=''>Broken Link</a></h4>
-    </div>
-  </div>
 </div>
 
-  
-  
-  
+
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 4: Microcontroller Programming</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 5: 3D Design and Printing</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 6: Electronic Input Devices</div>
+         	</a>
+     	</div>
+    </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 7: Electronic Output Devices</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 8: Radio Communication</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 9: WiFi and Bluetooth</div>
+         	</a>
+     	</div>
+    </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 10: Machine Building and End Effectors</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 11: Computer Programming</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 12: Casting, Composites, Sewing</div>
+         	</a>
+     	</div>
+    </div>
+</div>
+
+
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 13: Project Integration</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Week 14: Project Prep</div>
+         	</a>
+     	</div>
+    </div>
+
+    <div class="col-sm-4" style="margin-bottom: 30px;">
+      	<div class="container">
+         	<a class="big" href='./01_intro/index.html'>
+      	     	<img class="big" src="./WeekOne.png" class="img-responsive margin" alt="HTML and CSS code" style="">
+      	     	<div class = "centered">Final Project</div>
+         	</a>
+     	</div>
+    </div>
 </div>
 
 </body>

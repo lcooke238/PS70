@@ -18,6 +18,7 @@ button {
    background-repeat:no-repeat;
    border-radius: 8px;
    border: none;
+   transition:0.5s;
 }
 
 button:hover, button:active {
@@ -25,10 +26,13 @@ button:hover, button:active {
 font-family: 'Titillium Web', sans-serif;
    border-radius: 8px;
    background-color: #ddd;
+   transition:0.5s;
 }
 
 up {
 transition: none;
+background-color: black;
+opacity: 0.3;
 }
 
 
@@ -46,13 +50,14 @@ h1 {
   vertical-align: top;
   font-family: 'Titillium Web', sans-serif;
   font-size: 15px;
-  margin-top: 0px;
+  margin-top: 1px;
   padding-top: 0px;
   padding-bottom: 5px;
 }
 
-a:link, a:visited {
+a.small:link, a.small:visited {
   font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
   background-color: #725B56;
   color: white;
   border-radius: 8px;
@@ -63,14 +68,97 @@ a:link, a:visited {
   display: inline-block;
 }
 
-a:hover, a:active {
+a.small:hover, a.small:active {
    font-family: 'Titillium Web', sans-serif;
+   font-size: 15px;
    background-color: #ddd;
    color: black;;
 }
 
+a.big:link, a.big:visited {
+  font-family: 'Titillium Web', sans-serif;
+  position: relative;
+   text-align: center;
+   color: black;
+   display: block;
+   transition: 0.5s;
+}
+
+a.big:hover, a.big:active {
+   font-family: 'Titillium Web', sans-serif;
+   position: relative;
+   text-align: center;
+   padding: -15px;
+   background-color: transparent;
+   color: black;
+   display: block;
+   transition: 0.5s;
+}
+
+img.big {
+  text-align: center;
+  width: 92%;
+  height: auto;
+  margin: auto;
+  border: 10px solid white;
+  padding: 10px;
+}
+
+img.big:hover {
+  text-align: center; 
+  width: 92%;
+  height: auto;
+  margin: auto;
+  border: 10px solid white;
+  padding: 10px;
+  opacity: 0.45;
+  background-opacity: 1;
+}
+
+.container {
+ width: 100%;
+ position:relative;
+}
+
+.container:hover img.big {  
+  opacity: 0.45;
+  background-opacity: 1;
+  transition: 0.2s;
+ }
+
+.container:hover .centered {
+  font-size: 30px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.container:hover {
+   background-image: linear-gradient(to right, transparent, transparent 7%, black 7%, black 93%, transparent 93%, transparent 100%);
+  transition: 0.2s;
+}
+
+.centered {
+  font-family: 'Titillium Web', sans-serif;
+  color: white;
+  opacity: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.textOverlay {
+  display: none;
+}
+
+.textOverlay:hover{
+  display: block;
+}
+
 filler {
   font-family: 'Titillium Web', sans-serif;
+  color: white;
   margin: 7px;
 }
 
@@ -81,8 +169,11 @@ diva {
 body {
     font: 20px Montserrat, sans-serif;
     line-height: 1.8;
-    color: black;
-    background-image: url('./CharlesSunset.png');
+    background-image: 
+       linear-gradient(
+      rgba(0, 0, 0, 0.45), 
+      rgba(0, 0, 0, 0.45)),
+       url('./CharlesSunset.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   }
@@ -108,11 +199,5 @@ border-color:#725B56;
  text-align: center
 }
 
-/* Centered text */
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+
 
