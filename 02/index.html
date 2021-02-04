@@ -13,43 +13,45 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../02_intro/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Project Proposal</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 6vh; margin-bottom: 22vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> For my final project, I don't have a full picture yet of what I want to create. Living on Harvard Yard this semester, I really want my final project to be something that I can take around and show my friends. I want my project to be accessible, so that anybody would think it was really cool without having to know how it works. Here are some ideas that I have been thinking about: <br><br> 1. a tiny portable charger that attaches somehow to the back of your phone (wireless)/ small sheet or something that attaches to your phone to extend the wireless charging through a case (like a wireless friendly case converter) <br> 2. a robot to get me something of my choice from the fridge <br> 3. face id glasses <br> 4. robot to make your bed <br> 5. massage shirt/wearable for my achy back <br> 6. autofocusing binocular glasses (follows your eyeline and focuses a zoomed picture of that object <br> 7. light-up bluetooth sticker tracker with an app (stick it on something and will light up when activated by app) <br> 8. a water bottle humidifier (a device you can stick inside a water bottle to humidify the room </p>
+    </div>
   </div>
-
  
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
