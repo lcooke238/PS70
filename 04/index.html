@@ -13,46 +13,112 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../43/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Microcontroller Programming</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we had the freedom to use our microcontrollers to program anything we wanted. Building upon my interests from last week's music box, I wanted to explore buzzers and making sound with parts in our kit. The first thing that came to mind was to create some sort of doorbell, where music would play at the push of a button. Let's get started! </p>
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I began my design with the button circuit and default code from lab this week. This circuit caused an onboard led to turn on only while the button was being pressed. My first thought was to run the circuit through the buzzer along with the button so when the button was pressed, the buzzer circuit was also completed. This approach techincally worked, but for any sound playing after the button had been released, the sound would be muffled because less current could run through the buzzer. It created a strange loud to quiet sound on the button press like that of the video below.  </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./ButtonCirc.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="basic motor circuit">
+    </div>
+  </div>
+
+
+  <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-2">
+        <video  width=100% height=auto controls>
+          <source src="./BuzzerSoftDelay.mp4">
+          Your browser does not support the video tag.
+        </video> 
+      </div>
+      <div class="col-md-9">
+         <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This loud to soft audio problem was simply a consequence of running a single circuit through both the buzzer and the button, so instead I fed my current to the buzzer in a circuit parallel to the button, allowing the microcontroller to start the sound with it's code. With this new circuit, I got a clear and consistent volume from my buzzer tone on the button press, and I was ready to modify the button code to incorporate a song! </p>
+      </div>
+    </div>
+
+
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 8vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This process wasn't too terrible. I started with the button code framework from the example, adding the code to create the song of my choice from github. I put the song playing function within the part of the code that was only activated upon button press, meaning my song would only play when I pressed the button. This strategy ended up working first try! I was quite excited--that was until I heard the song. </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./CodePlayer.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="basic motor circuit">
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 6vh; margin-bottom: 2vh;">
+    <div class="col-sm-4">
+      <img id="portrait" src="./FinalScoure.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="code sheet music">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> It turns out our composer has serious problems with the letter B, as all B flats and B notes were replaced with A sharps and As in the buzzer composition. Also, there were a bunch of random note errors, where the buzzer played a bunch of natural notes where they should have been sharps. So, I stepped through the composition with my piano app and fixed the wrong notes. I then realized that some of the rhythms were also off, so I added a few eigth rests here and there to fill out the composition and make it sound more familiar. Can you figure out the tune from the code sheet music? </p>
+    </div>
+  </div>
+
+
+
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-7">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> With the tune fixed, I could finally run my doorbell. Despite not having a casing to package it in, I still think the final product is really fun! This could be a cool way to reinvent my music box from last week with some of my own tunes.</p>
+    </div>
+    <div class="col-sm-4">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/Gdxo5K0KQzA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-sm-1">
+    </div>
+  
+
+      
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
