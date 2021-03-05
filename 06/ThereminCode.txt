@@ -1,0 +1,11 @@
+void setup() {
+  Serial.begin(9600);
+}
+ 
+void loop() {
+   int sensorValue = analogRead(A0);
+   int pitch = map(sensorValue, 10, 500, 1000, 1800);
+   Serial.println(sensorValue);
+   delayMicroseconds(500);
+  tone(9, pitch);
+}
