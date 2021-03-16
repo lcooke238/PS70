@@ -45,7 +45,7 @@
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To do this, I again planned to use my hall sensor for magnetism, and its corresponding calibration curve from last week. For more details about that process, feel free to look at week 6's post. Recall that this sensor has an added layer for calibration, where my magnet will bring the sensor value either down to 10 or up to 1000 from the standard 500 value depending on which side of the magnet is exposed to the sensor. For calibration purposes, I decided to only calibrate for the bottom half of my range, as the graph for the upper half would be a mirror image of the lower half. In this project, I decided to explore the full range of magnet values with a tft display.  </p>
     </div>
     <div class="col-sm-4">
-      <img id="portrait" src="./HallSensorCalibrationCurve.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="calibration curve hall sensor">
+      <img id="portrait" src="./HallSensorCalibrationCurve.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="calibration curve hall sensor">
     </div>
   </div>
 
@@ -65,7 +65,7 @@
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> One major drawback of my project from last week was the shoddy pitch range I could create with the magnet. As the calibration curve shows, this sensor has a very short height range of value change, and that change is not linear. Thus, as I move linearly with my magnet, the pitch of my buzzer would settle on this higher tone quite quickly. To correct for this, I wrote a new mapping function that would try to spread this movement over a greater range to create what will hopefully be a smoother transition on my tft display. With this function working, I could finally assemble the pieces.  For my display, I rigged my hall sensor up to the breadboard in the same way as I did in week six. My only change electronically was to connect all of my ground pins to the negative thread on the breadboard before using a single ground pin on my board, and the same with my power pins on the positive rail.</p>
     </div>
     <div class="col-sm-4">
-      <img id="portrait" src="./mapping.png" class="img-responsive margin" style="width:100%; height: auto;" alt="mapping function code">
+      <img id="portrait" src="./mapping.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="mapping function code">
       <img id="portrait" src="./finalBuild.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="mapping function code">
     </div>
   </div>
