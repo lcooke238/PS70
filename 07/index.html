@@ -13,46 +13,95 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../07/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Electronic Output Devices</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we learned about output devices, including the buzzer (which I am a bit familiar with now), the tft display, and led strips. The assignment for this week was to build something along the lines of what I ended up making for last week, so I am going to use what I learned from that experience with a new output device. </p>
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To do this, I again planned to use my hall sensor for magnetism, and its corresponding calibration curve from last week. For more details about that process, feel free to look at week 6's post. Recall that this sensor has an added layer for calibration, where my magnet will bring the sensor value either down to 10 or up to 1000 from the standard 500 value depending on which side of the magnet is exposed to the sensor. For calibration purposes, I decided to only calibrate for the bottom half of my range, as the graph for the upper half would be a mirror image of the lower half. In this project, I decided to explore the full range of magnet values with a tft display.  </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./capacitiveBuild.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="calibration curve hall sensor">
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-sm-4">
+      <img id="portrait" src="./CapacitorCalibrationCurve.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="tft build">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Before I could play with the hall sensor input, I needed to get the tft display working. I followed the tutorial from the PS70 website, changing a few pins for the Metro M0 boards that we used based on the results of my classmates. (Shout out to Samantha for her super helpful wiring writeup!) Once I had the tft setup, I ran the code from the tutorial to test the screen's capabilities. It ended up working perfectly! With the screen setup, I could finally connect my hall sensor and begin changing the colors based on the magnet's position. </p>
+    </div>
+  </div>
+
+
+
+   <div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> One major drawback of my project from last week was the shoddy pitch range I could create with the magnet. As the calibration curve shows, this sensor has a very short height range of value change, and that change is not linear. Thus, as I move linearly with my magnet, the pitch of my buzzer would settle on this higher tone quite quickly. To correct for this, I wrote a new mapping function that would try to spread this movement over a greater range to create what will hopefully be a smoother transition on my tft display. With this function working, I could finally assemble the pieces.  </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./hallsensortest.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="mapping function code">
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 6vh; margin-bottom: 6vh;">
+    <div class="col-sm-3">
+     <iframe width="560" height="315" src="https://www.youtube.com/embed/732O3iqp4h4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     <a href="./magscreencode.txt" target="_blank">Code Link</a>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> For my display, I rigged my hall sensor up to the breadboard in the same way as I did in week six. My only change electronically was to connect all of my ground pins to the negative thread on the breadboard before using a single ground pin on my board, and the same with my power pins on the positive rail. I then modified the test script from the tutorial by assigning a variable in the loop to hold the sensor value, passing that sensor value into the mapping function, and using that mapped result as a color factor for my image display. I am pretty happy with the final reuslt. The colors don't turn out as vibrant on the video I recorded as they do in real life, but I hope you still enjoy! </p>
+    </div>
+  </div>
+
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
