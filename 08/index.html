@@ -13,46 +13,83 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../08/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Wired and Radio Communication</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we learned how to execute programs using multiple microcontrollers. We learned how to connect them with and without wires as the title of this section would imply. I also spent a significant amount of time clarifying my final project idea. </p>
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> For this week's assignment, I decided to follow the tutorial on the course site and directly connect a potentiometer to a servo across two wired boards such that when I turn the knob of the POT the position of the servo changes accordingly. The wiring was pretty straightforward, where I connected the potentiometer to the Metro M0 and I connected the servo to the Huzzah board. All power lines were fed to the top rail of the breadboard while all ground lines were fed to the second rail. Both were then connected to power and ground from the Metro M0 respectively.  </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./wiring.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="wiring potentiometer and servo">
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+	<div class="col-sm-4">
+     	<iframe width=100% height=300vh src="https://www.youtube.com/embed/3N4ZimTAE7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+     	<a href="./transmitCode.txt" target="_blank">Input Code Link</a>
+     	<a href="./recieveCode.txt" target="_blank">Output Code Link</a>
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To set everything up, I uploaded the provided code to each board, installing the ESP32servo library after my failed first upload attempt. Then, once I plugged everything in, I got the setup working! I had a little hiccup along the way where I plugged the wrong servo wire into power, but that was a quick fix. I think the result is quite cool, but I wanted to put a bit of my own spin on it! I never got the chance toget my speaker working for the kinetic sculpture in week 3, so I figured that I would use this servo setup to listen to our card tunes! I attached my servo to the hinge and got this little contraption going. It's nice to know that I can listen to my hot dog happy birthday song on command.  </p>
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;">  In terms of project progress, I have finally come up with something I am excited about. The thought is to design a capacitance half-cube where I can draw in midair to create 3D models that can then be modified for printing! I've included a schematic with my rough outline of the project. I am also thinking about how I will signal to the cube that I am finished with a drawing / when I am starting a drawing, most likely by using some secondary input or a specific coordinate placement. I look forward to working out more of the hardware work next week! </p>
+    </div>
+    <div class="col-sm-4">
+     <img id="portrait" src="./schematic.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="Project schematic">
+    </div>
+  </div>
+
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
