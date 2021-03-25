@@ -52,13 +52,51 @@
 <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
 	<div class="col-sm-4">
      	<iframe width=100% height=300vh src="https://www.youtube.com/embed/3N4ZimTAE7s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-     	<a href="./transmitCode.txt" target="_blank">Input Code Link</a>
-     	<a href="./recieveCode.txt" target="_blank">Output Code Link</a>
     </div>
     <div class="col-md-8">
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To set everything up, I uploaded the provided code to each board, installing the ESP32servo library after my failed first upload attempt. Then, once I plugged everything in, I got the setup working! I had a little hiccup along the way where I plugged the wrong servo wire into power, but that was a quick fix. I think the result is quite cool, but I wanted to put a bit of my own spin on it! I never got the chance toget my speaker working for the kinetic sculpture in week 3, so I figured that I would use this servo setup to listen to our card tunes! I attached my servo to the hinge and got this little contraption going. It's nice to know that I can listen to my hot dog happy birthday song on command.  </p>
     </div>
   </div>
+
+<pre  style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">//Code to transmit
+const int pot_pin = A0;
+
+void setup() {
+  Serial.begin(0);        
+  Serial1.begin(9600); 
+}
+
+void loop() {
+  int pot_value = analogRead(pot_pin);
+  Serial.println(pot_value); 
+  Serial1.write(pot_value/4);
+  delay(10);
+} </span>
+</code></pre>
+
+<pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">//Code to recieve
+#include ESP32Servo.h
+
+Servo myservo;
+
+void setup() {
+  myservo.attach(21); 
+  Serial.begin(9600);       
+  Serial1.begin(9600);      
+}
+
+void loop() {
+  while (!Serial1.available()) {
+  }
+
+  byte rec_byte =  Serial1.read();        
+  int degree = rec_byte*180/255;    
+  Serial.println(degree);    
+  myservo.write(degree);
+} </span>
+</code></pre>
 
 <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-md-8">

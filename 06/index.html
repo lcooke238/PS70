@@ -84,12 +84,25 @@
     </div>
     <div class="col-sm-3">
      <iframe width="560" height="315" src="https://www.youtube.com/embed/732O3iqp4h4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-     <a href="./ThereminCode.txt" target="_blank">Code Link</a>
     </div>
     <div class="col-sm-1">
     </div>
   </div>
-      
+ 
+ <pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">void setup() {
+  Serial.begin(9600);
+}
+ 
+void loop() {
+   int sensorValue = analogRead(A0);
+   int pitch = map(sensorValue, 10, 500, 1000, 1800);
+   Serial.println(sensorValue);
+   delayMicroseconds(500);
+  tone(9, pitch);
+}</span>
+</code></pre>     
+
   <script>
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
