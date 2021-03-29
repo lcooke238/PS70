@@ -34,24 +34,19 @@
     </div>
   </div> 
 
-
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-
-  <!-- TODO: Add SDKs for Firebase products that you want to use
-       https://firebase.google.com/docs/web/setup#available-libraries -->
-  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
   <script>
   // Your web app's Firebase configuration
-   var firebaseConfig = {
+ var firebaseConfig = {
     apiKey: "AIzaSyBn_2Y2KzBgFulDP1MYFO-dW_4V5VJXU3o",
     authDomain: "week-9-ps70.firebaseapp.com",
     databaseURL: "https://week-9-ps70-default-rtdb.firebaseio.com",
     projectId: "week-9-ps70",
     storageBucket: "week-9-ps70.appspot.com",
     messagingSenderId: "917465242833",
-    appId: "1:917465242833:web:5e01d97e051243b62c39f0"
+    appId: "1:917465242833:web:42dd425ec40f6bfa2c39f0"
   };
   
   // Initialize Firebase
@@ -61,20 +56,116 @@
   var ref = firebase.database().ref("/");
 
   // make the buttons call the function below 
-  document.getElementById('turn-on').addEventListener('click', turnOn, false);
+  document.getElementById('play-c-low').addEventListener('click', C_Low, false);
+  document.getElementById('play-c-sharp').addEventListener('click', C_sharp, false);
+  document.getElementById('play-d').addEventListener('click', D, false);
+  document.getElementById('play-d-sharp').addEventListener('click', D_sharp, false);
+  document.getElementById('play-e').addEventListener('click', E, false);
+  document.getElementById('play-f').addEventListener('click', F, false);
+  document.getElementById('play-f-sharp').addEventListener('click', F_sharp, false);
+  document.getElementById('play-g').addEventListener('click', G, false);
+  document.getElementById('play-g-sharp').addEventListener('click', G_sharp, false);
+  document.getElementById('play-a').addEventListener('click', A, false);
+  document.getElementById('play-a-sharp').addEventListener('click', A_sharp, false);
+  document.getElementById('play-b').addEventListener('click', B, false);
+  document.getElementById('play-c-high').addEventListener('click', C_High, false);
   document.getElementById('turn-off').addEventListener('click', turnOff, false);
 
-  function turnOn(){
-    console.log("turning on");
+  function C_Low(){
+    console.log("Playing C");
     ref.update({
-      "LED_STATUS": "ON"
+      "PIANO_NOTE": "C_LOW"
+    });
+  }
+
+  function C_sharp(){
+    console.log("Playing C#");
+    ref.update({
+      "PIANO_NOTE": "C#"
+    });
+  }
+
+  function D(){
+    console.log("Playing D");
+    ref.update({
+      "PIANO_NOTE": "D"
+    });
+  }
+
+  function D_sharp(){
+    console.log("Playing D#");
+    ref.update({
+      "PIANO_NOTE": "D#"
+    });
+  }
+
+  function E(){
+    console.log("Playing E");
+    ref.update({
+      "PIANO_NOTE": "E"
+    });
+  }
+
+  function F(){
+    console.log("Playing F");
+    ref.update({
+      "PIANO_NOTE": "F"
+    });
+  }
+
+  function F_sharp(){
+    console.log("Playing F#");
+    ref.update({
+      "PIANO_NOTE": "F#"
+    });
+  }
+
+  function G(){
+    console.log("Playing G");
+    ref.update({
+      "PIANO_NOTE": "G"
+    });
+  }
+
+  function G_sharp(){
+    console.log("Playing G#");
+    ref.update({
+      "PIANO_NOTE": "G#"
+    });
+  }
+
+  function A(){
+    console.log("Playing A");
+    ref.update({
+      "PIANO_NOTE": "A"
+    });
+  }
+
+  function A_sharp(){
+    console.log("Playing A#");
+    ref.update({
+      "PIANO_NOTE": "A#"
+    });
+  }
+
+  function B(){
+    console.log("Playing B");
+    ref.update({
+      "PIANO_NOTE": "B"
+    });
+  }
+
+  function C_High(){
+    console.log("Playing High C");
+    ref.update({
+      "PIANO_NOTE": "C_HIGH"
     });
   }
 
   function turnOff(){
     console.log("turning off");
     ref.update({
-      "LED_STATUS": "OFF"
+      "PIANO_NOTE": "OFF"
     });
   } 
     </script>
@@ -105,17 +196,7 @@
 
   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Now, all I had to do was import my firebase app information into the code provided on the course page and I had working lights! You can press the buttons below to toggle the LED on or off.  </p>
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-3">
-        <button id="turn-on" name="turnon" style= "background-color: #725B56">Turn On </button> 
-      </div>
-      <div class="col-md-1">
-      </div>
-      <div class="col-sm-3">
-        <button id="turn-off" name="turnoff" style= "background-color: #725B56">Turn Off </button>
-      </div>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Now, all I had to do was import my firebase app information into the code provided on the course page and I had working lights! I showed how the website buttons work on a previous version of this page, but I removed them as they no longer work. Stay tuned for some buttons you can actually press!</p>
     </div>
     <div class="col-sm-4">
       <iframe width=100% height=300vh src="https://www.youtube.com/embed/FZ5oVs-Y4_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -128,63 +209,170 @@
     </div>
   </div>
 
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="col-sm-4">
+     <img id="portrait" src="./buzzer_wiring.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="wiring led and esp32">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To do this, I modified the code from the tutorial to include a few more buttons and built a circuit to connect the buzzer to the huzzah. All I changed in the circuitry was connecting the huzzah pin 5 to the buzzer's positive pin, the end of that pin to the positive rail with a separate wire, and the negative pin of the buzzer to the negative rail. For the code, I simply added a few more recognized strings to the firebase database from the demo and created more buttons to activate those strings and their corresponding pitches. </p>
+    </div>
+  </div>
+
+  <pre  style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">
+#include &lt;WiFi.h&gt;                                 // esp32 library
+#include &lt;FirebaseESP32.h&gt;                        // firebase library
+
+#define FIREBASE_HOST Fill_in_with_your_Info      // the project name address from firebase id
+#define FIREBASE_AUTH Fill_in_with_your_Info      // the secret key generated from firebase
+#define WIFI_SSID     Fill_in_with_your_Info      // input your home or public wifi name
+#define WIFI_PASSWORD Fill_in_with_your_Info      // password of wifi ssid
+
+String fireString = "";                                          // piano status received from firebase
+
+//Define FirebaseESP32 data object
+FirebaseData firebaseData;
+
+int freq = 2000;
+int channel = 0;
+int resolution = 8;
+
+void setup() {
+  Serial.begin(115200);
+   ledcSetup(channel, freq, resolution);
+  ledcAttachPin(5, channel);
+  delay(1000);
+  pinMode(5, OUTPUT);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);                          // try to connect with wifi
+
+  Serial.print("Connecting to ");
+  Serial.print(WIFI_SSID);
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+
+  Serial.println();
+  Serial.print("Connected to ");
+  Serial.println(WIFI_SSID);
+  Serial.print("IP Address is : ");
+  Serial.println(WiFi.localIP());                                // print local IP address
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);                  // connect to firebase
+  Firebase.reconnectWiFi(true);
+  Firebase.set(firebaseData, "/PIANO_NOTE", "OFF");              // set initial string of "OFF"
+}
+
+void loop() {
+
+  Firebase.get(firebaseData, "/PIANO_NOTE");                     // get piano status input from firebase
+  fireString = firebaseData.stringData();                        // change to e.g. intData() or boolData()
+  Serial.println(fireString);
+
+   if (fireString == "C_LOW") {              
+    Serial.println("Playing LOW C");
+     ledcWriteTone(channel, 261.63);
+   }
+   
+  else if (fireString == "C#") {             
+    Serial.println("Playing C#");
+     ledcWriteTone(channel, 277.18);
+  }
+
+   else if (fireString == "D") {             
+    Serial.println("Playing D");
+     ledcWriteTone(channel, 293.66);
+  }
+
+   else if (fireString == "D#") {             
+    Serial.println("Playing D#");
+     ledcWriteTone(channel, 311.13);
+  }
+
+  else if (fireString == "E") {             
+    Serial.println("Playing E");
+     ledcWriteTone(channel, 329.63);
+  }
+
+   else if (fireString == "F") {             
+    Serial.println("Playing F");
+     ledcWriteTone(channel, 349.23);
+  }
+
+  else if (fireString == "F#") {             
+    Serial.println("Playing F#");
+     ledcWriteTone(channel, 369.99);
+  }
+
+   else if (fireString == "G") {             
+    Serial.println("Playing G");
+     ledcWriteTone(channel, 392);
+  }
+
+   else if (fireString == "G#") {             
+    Serial.println("Playing G#");
+     ledcWriteTone(channel, 415.30);
+  }
+
+  else if (fireString == "A") {             
+    Serial.println("Playing A");
+     ledcWriteTone(channel, 440);
+  }
+
+   else if (fireString == "A#") {             
+    Serial.println("Playing A#");
+     ledcWriteTone(channel, 466.16);
+  }
+
+   else if (fireString == "B") {             
+    Serial.println("Playing B");
+     ledcWriteTone(channel, 493.88);
+  }
+
+   else if (fireString == "C_HIGH") {             
+    Serial.println("Playing High C");
+     ledcWriteTone(channel, 523.25);
+  }
+
+  else if (fireString == "OFF") {             
+    Serial.println("Piano OFF");
+     ledcWriteTone(channel, 0);
+  }
+
+  else {
+    Serial.println("Please send ON/OFF");
+  }
+
+  delay(1000);                                 // not strictly necessary
+} </span>
+</code></pre>
+
+
  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-sm-4">
       <iframe width=100% height=300vh src="https://www.youtube.com/embed/FZ5oVs-Y4_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="col-md-8">
-       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> From here, I wanted to examine what more I could do with a Wifi connection, so I built a virtual piano that played notes on my piezo buzzer. </p>
+       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Here's my piano. Enjoy! </p>
+      <div class="col-md-8">
+        <button id="turn-off" name="turnoff" style= "background-color: #725B56">Off</button>
+        <button id="play-c-low" name="LowC" style= "background-color: #725B56">Low C</button>
+        <button id="play-c-sharp" name="C#" style= "background-color: #725B56">C#</button>
+        <button id="play-d" name="D" style= "background-color: #725B56">D</button>
+        <button id="play-d-sharp" name="D#" style= "background-color: #725B56">D#</button>
+        <button id="play-e" name="E" style= "background-color: #725B56">E</button>
+        <button id="play-f" name="F" style= "background-color: #725B56">F</button>
+        <button id="play-f-sharp" name="F#" style= "background-color: #725B56">F#</button>
+        <button id="play-g" name="G" style= "background-color: #725B56">G</button>
+        <button id="play-g-sharp" name="G#" style= "background-color: #725B56">G#</button>
+        <button id="play-a" name="A" style= "background-color: #725B56">A</button>
+        <button id="play-a-sharp" name="A#" style= "background-color: #725B56">A#</button>
+        <button id="play-b" name="B" style= "background-color: #725B56">B</button>
+        <button id="play-c-high" name="HighC" style= "background-color: #725B56">High C</button>
+      </div>
     </div>
   </div>
 
-<pre  style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
-<span class="hljs-comment">//Code to transmit
-const int pot_pin = A0;
 
-void setup() {
-  Serial.begin(0);        
-  Serial1.begin(9600); 
-}
-
-void loop() {
-  int pot_value = analogRead(pot_pin);
-  Serial.println(pot_value); 
-  Serial1.write(pot_value/4);
-  delay(10);
-} </span>
-</code></pre>
-
-<pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
-<span class="hljs-comment">//Code to recieve
-#include ESP32Servo.h
-
-Servo myservo;
-
-void setup() {
-  myservo.attach(21); 
-  Serial.begin(9600);       
-  Serial1.begin(9600);      
-}
-
-void loop() {
-  while (!Serial1.available()) {
-  }
-
-  byte rec_byte =  Serial1.read();        
-  int degree = rec_byte*180/255;    
-  Serial.println(degree);    
-  myservo.write(degree);
-} </span>
-</code></pre>
-
-<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-    <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;">  In terms of project progress, I have finally come up with something I am excited about. The thought is to design a capacitance half-cube where I can draw in midair to create 3D models that can then be modified for printing! I've included a schematic with my rough outline of the project. I am also thinking about how I will signal to the cube that I am finished with a drawing / when I am starting a drawing, most likely by using some secondary input or a specific coordinate placement. I look forward to working out more of the hardware work next week! </p>
-    </div>
-    <div class="col-sm-4">
-     <img id="portrait" src="./schematic.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="Project schematic">
-    </div>
-  </div>
 
 
   <script>
