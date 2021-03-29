@@ -13,46 +13,200 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
+
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../09/index.html">This Week</a>
+  </div>
+
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Networking (IoT): WiFi and Bluetooth</h3>
+    </div>
+  </div> 
+
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+
+  <script>
+  // Your web app's Firebase configuration
+   var firebaseConfig = {
+    apiKey: "AIzaSyBn_2Y2KzBgFulDP1MYFO-dW_4V5VJXU3o",
+    authDomain: "week-9-ps70.firebaseapp.com",
+    databaseURL: "https://week-9-ps70-default-rtdb.firebaseio.com",
+    projectId: "week-9-ps70",
+    storageBucket: "week-9-ps70.appspot.com",
+    messagingSenderId: "917465242833",
+    appId: "1:917465242833:web:5e01d97e051243b62c39f0"
+  };
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Get a database reference to our blog
+  var ref = firebase.database().ref("/");
+
+  // make the buttons call the function below 
+  document.getElementById('turn-on').addEventListener('click', turnOn, false);
+  document.getElementById('turn-off').addEventListener('click', turnOff, false);
+
+  function turnOn(){
+    console.log("turning on");
+    ref.update({
+      "LED_STATUS": "ON"
+    });
   }
-  prevScrollpos = currentScrollPos;
+
+  function turnOff(){
+    console.log("turning off");
+    ref.update({
+      "LED_STATUS": "OFF"
+    });
+  } 
+    </script>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we learned how to connect our microcontrollers to external devices using wifi and bluetooth. To get started, I went through the tutorial on the course site to connect an LED to some buttons on my website. </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> First, I built a simple circuit connecting an LED to my ESP32 microcontroller. I connected the black wire from the negative rail to ground, the red wire from the positive rail to pin 5, a 100 ohm resistor from the positive rail to the positive side of my led, and an led connected that resistor to the negative rail. From there, I could setup my firebase web app by following the tutorial from the course page. Everything was working smoothly, until I remembered that, being on campus, I could not exactly use my home network. So, I had to improvise.  </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./wiring_demo.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="wiring led and esp32">
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+	<div class="col-sm-4">
+     <img id="portrait" src="./Wifi_setup.png" class="img-responsive margin" style="width:100%; height: auto;" alt="wiring led and esp32">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I am currently using a windows 10 machine, so I had the capability to generate a hotsopt. To do this, I clicked on the search icon on my task bar and typed "mobile hotspot". Press enter, and I was directed to a settings window where I could toggle a hotspot on. After giving it a name and a password, I turned the power saving switch off. This step is extremely important, as the hotspot won't be on for connection without it. From there, I could run the code from the course site and connect my microcontroller!   </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Now, all I had to do was import my firebase app information into the code provided on the course page and I had working lights! You can press the buttons below to toggle the LED on or off.  </p>
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-3">
+        <button id="turn-on" name="turnon" style= "background-color: #725B56">Turn On </button> 
+      </div>
+      <div class="col-md-1">
+      </div>
+      <div class="col-sm-3">
+        <button id="turn-off" name="turnoff" style= "background-color: #725B56">Turn Off </button>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <iframe width=100% height=300vh src="https://www.youtube.com/embed/FZ5oVs-Y4_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+ <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> From here, I wanted to examine what more I could do with a Wifi connection, so I wanted to build a virtual piano that played notes on my piezo buzzer. </p>
+    </div>
+  </div>
+
+ <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-sm-4">
+      <iframe width=100% height=300vh src="https://www.youtube.com/embed/FZ5oVs-Y4_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-8">
+       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> From here, I wanted to examine what more I could do with a Wifi connection, so I built a virtual piano that played notes on my piezo buzzer. </p>
+    </div>
+  </div>
+
+<pre  style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">//Code to transmit
+const int pot_pin = A0;
+
+void setup() {
+  Serial.begin(0);        
+  Serial1.begin(9600); 
 }
-</script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+void loop() {
+  int pot_value = analogRead(pot_pin);
+  Serial.println(pot_value); 
+  Serial1.write(pot_value/4);
+  delay(10);
+} </span>
+</code></pre>
+
+<pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">//Code to recieve
+#include ESP32Servo.h
+
+Servo myservo;
+
+void setup() {
+  myservo.attach(21); 
+  Serial.begin(9600);       
+  Serial1.begin(9600);      
+}
+
+void loop() {
+  while (!Serial1.available()) {
+  }
+
+  byte rec_byte =  Serial1.read();        
+  int degree = rec_byte*180/255;    
+  Serial.println(degree);    
+  myservo.write(degree);
+} </span>
+</code></pre>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;">  In terms of project progress, I have finally come up with something I am excited about. The thought is to design a capacitance half-cube where I can draw in midair to create 3D models that can then be modified for printing! I've included a schematic with my rough outline of the project. I am also thinking about how I will signal to the cube that I am finished with a drawing / when I am starting a drawing, most likely by using some secondary input or a specific coordinate placement. I look forward to working out more of the hardware work next week! </p>
+    </div>
+    <div class="col-sm-4">
+     <img id="portrait" src="./schematic.JPG" class="img-responsive margin" style="width:100%; height: auto;" alt="Project schematic">
+    </div>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
-  </div>
-
- 
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
