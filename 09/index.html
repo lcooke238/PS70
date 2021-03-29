@@ -34,142 +34,6 @@
     </div>
   </div> 
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-
-  <script>
-  // Your web app's Firebase configuration
- var firebaseConfig = {
-    apiKey: "AIzaSyBn_2Y2KzBgFulDP1MYFO-dW_4V5VJXU3o",
-    authDomain: "week-9-ps70.firebaseapp.com",
-    databaseURL: "https://week-9-ps70-default-rtdb.firebaseio.com",
-    projectId: "week-9-ps70",
-    storageBucket: "week-9-ps70.appspot.com",
-    messagingSenderId: "917465242833",
-    appId: "1:917465242833:web:42dd425ec40f6bfa2c39f0"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  // Get a database reference to our blog
-  var ref = firebase.database().ref("/");
-
-  // make the buttons call the function below 
-  document.getElementById('play-c-low').addEventListener('click', C_Low, false);
-  document.getElementById('play-c-sharp').addEventListener('click', C_sharp, false);
-  document.getElementById('play-d').addEventListener('click', D, false);
-  document.getElementById('play-d-sharp').addEventListener('click', D_sharp, false);
-  document.getElementById('play-e').addEventListener('click', E, false);
-  document.getElementById('play-f').addEventListener('click', F, false);
-  document.getElementById('play-f-sharp').addEventListener('click', F_sharp, false);
-  document.getElementById('play-g').addEventListener('click', G, false);
-  document.getElementById('play-g-sharp').addEventListener('click', G_sharp, false);
-  document.getElementById('play-a').addEventListener('click', A, false);
-  document.getElementById('play-a-sharp').addEventListener('click', A_sharp, false);
-  document.getElementById('play-b').addEventListener('click', B, false);
-  document.getElementById('play-c-high').addEventListener('click', C_High, false);
-  document.getElementById('turn-off').addEventListener('click', turnOff, false);
-
-  function C_Low(){
-    console.log("Playing C");
-    ref.update({
-      "PIANO_NOTE": "C_LOW"
-    });
-  }
-
-  function C_sharp(){
-    console.log("Playing C#");
-    ref.update({
-      "PIANO_NOTE": "C#"
-    });
-  }
-
-  function D(){
-    console.log("Playing D");
-    ref.update({
-      "PIANO_NOTE": "D"
-    });
-  }
-
-  function D_sharp(){
-    console.log("Playing D#");
-    ref.update({
-      "PIANO_NOTE": "D#"
-    });
-  }
-
-  function E(){
-    console.log("Playing E");
-    ref.update({
-      "PIANO_NOTE": "E"
-    });
-  }
-
-  function F(){
-    console.log("Playing F");
-    ref.update({
-      "PIANO_NOTE": "F"
-    });
-  }
-
-  function F_sharp(){
-    console.log("Playing F#");
-    ref.update({
-      "PIANO_NOTE": "F#"
-    });
-  }
-
-  function G(){
-    console.log("Playing G");
-    ref.update({
-      "PIANO_NOTE": "G"
-    });
-  }
-
-  function G_sharp(){
-    console.log("Playing G#");
-    ref.update({
-      "PIANO_NOTE": "G#"
-    });
-  }
-
-  function A(){
-    console.log("Playing A");
-    ref.update({
-      "PIANO_NOTE": "A"
-    });
-  }
-
-  function A_sharp(){
-    console.log("Playing A#");
-    ref.update({
-      "PIANO_NOTE": "A#"
-    });
-  }
-
-  function B(){
-    console.log("Playing B");
-    ref.update({
-      "PIANO_NOTE": "B"
-    });
-  }
-
-  function C_High(){
-    console.log("Playing High C");
-    ref.update({
-      "PIANO_NOTE": "C_HIGH"
-    });
-  }
-
-  function turnOff(){
-    console.log("turning off");
-    ref.update({
-      "PIANO_NOTE": "OFF"
-    });
-  } 
-    </script>
-
   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-xl-12">
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we learned how to connect our microcontrollers to external devices using wifi and bluetooth. To get started, I went through the tutorial on the course site to connect an LED to some buttons on my website. </p>
@@ -349,7 +213,7 @@ void loop() {
 
  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-sm-4">
-      <iframe width=100% height=300vh src="https://www.youtube.com/embed/FZ5oVs-Y4_U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width=100% height=300vh src="https://www.youtube.com/embed/LclNsQvXCDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="col-md-8">
        <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Here's my piano. Enjoy! </p>
@@ -374,6 +238,145 @@ void loop() {
 
 
 
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+
+  <script>
+  // Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyBn_2Y2KzBgFulDP1MYFO-dW_4V5VJXU3o",
+    authDomain: "week-9-ps70.firebaseapp.com",
+    databaseURL: "https://week-9-ps70-default-rtdb.firebaseio.com",
+    projectId: "week-9-ps70",
+    storageBucket: "week-9-ps70.appspot.com",
+    messagingSenderId: "917465242833",
+    appId: "1:917465242833:web:42dd425ec40f6bfa2c39f0"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  // Get a database reference to our blog
+  var ref = firebase.database().ref("/");
+
+  // make the buttons call the function below 
+  document.getElementById('play-c-low').addEventListener('click', C_Low, false);
+  document.getElementById('play-c-sharp').addEventListener('click', C_sharp, false);
+  document.getElementById('play-d').addEventListener('click', D, false);
+  document.getElementById('play-d-sharp').addEventListener('click', D_sharp, false);
+  document.getElementById('play-e').addEventListener('click', E, false);
+  document.getElementById('play-f').addEventListener('click', F, false);
+  document.getElementById('play-f-sharp').addEventListener('click', F_sharp, false);
+  document.getElementById('play-g').addEventListener('click', G, false);
+  document.getElementById('play-g-sharp').addEventListener('click', G_sharp, false);
+  document.getElementById('play-a').addEventListener('click', A, false);
+  document.getElementById('play-a-sharp').addEventListener('click', A_sharp, false);
+  document.getElementById('play-b').addEventListener('click', B, false);
+  document.getElementById('play-c-high').addEventListener('click', C_High, false);
+  document.getElementById('turn-off').addEventListener('click', turnOff, false);
+
+  function C_Low(){
+    console.log("Playing C");
+    ref.update({
+      "PIANO_NOTE": "C_LOW"
+    });
+  }
+
+  function C_sharp(){
+    console.log("Playing C#");
+    ref.update({
+      "PIANO_NOTE": "C#"
+    });
+  }
+
+  function D(){
+    console.log("Playing D");
+    ref.update({
+      "PIANO_NOTE": "D"
+    });
+  }
+
+  function D_sharp(){
+    console.log("Playing D#");
+    ref.update({
+      "PIANO_NOTE": "D#"
+    });
+  }
+
+  function E(){
+    console.log("Playing E");
+    ref.update({
+      "PIANO_NOTE": "E"
+    });
+  }
+
+  function F(){
+    console.log("Playing F");
+    ref.update({
+      "PIANO_NOTE": "F"
+    });
+  }
+
+  function F_sharp(){
+    console.log("Playing F#");
+    ref.update({
+      "PIANO_NOTE": "F#"
+    });
+  }
+
+  function G(){
+    console.log("Playing G");
+    ref.update({
+      "PIANO_NOTE": "G"
+    });
+  }
+
+  function G_sharp(){
+    console.log("Playing G#");
+    ref.update({
+      "PIANO_NOTE": "G#"
+    });
+  }
+
+  function A(){
+    console.log("Playing A");
+    ref.update({
+      "PIANO_NOTE": "A"
+    });
+  }
+
+  function A_sharp(){
+    console.log("Playing A#");
+    ref.update({
+      "PIANO_NOTE": "A#"
+    });
+  }
+
+  function B(){
+    console.log("Playing B");
+    ref.update({
+      "PIANO_NOTE": "B"
+    });
+  }
+
+  function C_High(){
+    console.log("Playing High C");
+    ref.update({
+      "PIANO_NOTE": "C_HIGH"
+    });
+  }
+
+  function turnOff(){
+    console.log("turning off");
+    ref.update({
+      "PIANO_NOTE": "OFF"
+    });
+  } 
+    </script>
 
   <script>
     var prevScrollpos = window.pageYOffset;
