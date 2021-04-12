@@ -13,46 +13,427 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
+
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../11/index.html">This Week</a>
+  </div>
+
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Computer Programming</h3>
+    </div>
+  </div> 
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we focused on computer programming applications for our devices, specifically focusing on their interaction with our final projects. For my assignment this week, I wanted to build a 3D coordinate tracking software that would allow the user to navigate 3D space. </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To do this, I took Nathan's advice and started going through the code from the 3D capacitance sensor project (LINK), downloading all of the necessary files and software to set it up. When I run the original code, I got a value assignment error. Essentially, variables like PORTB and TORT0 are specific to the chips on the Arduino board, meaning our Metro M0's that don't have said boards cannot run the software. I spoke to Nathan about this in lab, and he whipped up a work-around in the code below! </p> 
+
+      <p>  </p>
+    </div>
+
+    <div class="col-sm-4">
+       <img id="portrait" src="./code_init_pull_problems_port.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="Final Double Build">
+    </div>
+  </div>
+
+  <div style="height:30vh;overflow:auto">
+      <pre style="background-color:transparent; color:#ddd";><code class="language-arduino hljs">
+		<span class="hljs-comment">
+import processing.serial.*;
+import processing.opengl.*;
+
+Serial serial;
+int serialPort = 1;
+
+int sen = 3; // sensors
+int div = 3; // board sub divisions
+
+class MomentumAverage {
+  float adapt;
+  float avg;
+  MomentumAverage(float adapt) {
+    this.adapt = adapt;
+    reset();
   }
-  prevScrollpos = currentScrollPos;
+  void note(float x) {
+    if(x == Float.POSITIVE_INFINITY)
+      return;
+    else
+      avg = (avg * (1 - adapt)) + (x * adapt);
+  }
+  void reset() {
+    avg = 0;
+  }
 }
-</script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+boolean linear = true;
+float minDistance = 1, maxDistance = 4;
+
+class Normalize {
+  float min, max;
+  Normalize() {
+    reset();
+  }
+  void note(float x) {
+    if(x < min)
+      min = x;
+    if(x > max)
+      max = x;
+  }
+  float normalize(float x) {
+    if(min == max || min == Float.POSITIVE_INFINITY)
+      return 0;
+    float n = map(x, min, max, 0, 1);
+    return constrain(n, 0, 1);
+  }
+  float linear(float x) {
+    float normalized = normalize(x);
+    if(normalized == 0)
+      return 1;
+    float linear = sqrt(1 / normalized);
+    linear = map(linear, minDistance, maxDistance, 0, 1);
+    //println(linear);
+    return constrain(linear, 0, 1);
+  }
+  float choose(float x) {
+    return linear ? linear(x) : normalize(x);
+  }
+  void reset() {
+    min = Float.POSITIVE_INFINITY;
+    max = Float.NEGATIVE_INFINITY;
+  }
+}  
+
+Normalize n[] = new Normalize[sen];
+MomentumAverage cama[] = new MomentumAverage[sen];
+MomentumAverage axyz[] = new MomentumAverage[sen];
+float[] nxyz = new float[sen];
+int[] ixyz = new int[sen];
+
+float w = 256; // board size
+boolean[] flip = {
+  false, true, false};
+
+int player = 0;
+boolean moves[][][][];
+
+PFont font;
+
+void setup() {
+  size(800, 600, P3D);
+  frameRate(25);
+  
+  font = loadFont("TrebuchetMS-Italic-20.vlw");
+  textFont(font);
+  textMode(SCREEN);
+  
+  println(Serial.list());
+  serial = new Serial(this, Serial.list()[serialPort], 115200);
+  
+  for(int i = 0; i < sen; i++) {
+    n[i] = new Normalize();
+    cama[i] = new MomentumAverage(.01);
+    axyz[i] = new MomentumAverage(.15);
+  }
+  
+  reset();
+}
+
+void draw() {
+  updateSerial();
+  drawBoard();
+}
+
+void updateSerial() {
+  String cur = serial.readStringUntil('\n');
+  if(cur != null) {
+    String[] parts = split(cur, " ");
+    if(parts.length == sen) {
+      float[] xyz = new float[sen];
+      for(int i = 0; i < sen; i++)
+        xyz[i] = float(parts[i]);
+  
+      if(mousePressed && mouseButton == LEFT)
+        for(int i = 0; i < sen; i++)
+          n[i].note(xyz[i]);
+  
+      nxyz = new float[sen];
+      for(int i = 0; i < sen; i++) {
+        float raw = n[i].choose(xyz[i]);
+        nxyz[i] = flip[i] ? 1 - raw : raw;
+        cama[i].note(nxyz[i]);
+        axyz[i].note(nxyz[i]);
+        ixyz[i] = getPosition(axyz[i].avg);
+      }
+    }
+  }
+}
+
+float cutoff = .2;
+int getPosition(float x) {
+  if(div == 3) {
+    if(x < cutoff)
+      return 0;
+    if(x < 1 - cutoff)
+      return 1;
+    else
+      return 2;
+  } 
+  else {
+    return x == 1 ? div - 1 : (int) x * div;
+  }
+}
+
+void drawBoard() {
+  background(255);
+
+  float h = w / 2;
+  camera(
+    h + (cama[0].avg - cama[2].avg) * h,
+    h + (cama[1].avg - 1) * height / 2,
+    w * 2,
+    h, h, h,
+    0, 1, 0);
+
+  pushMatrix();
+  noStroke();
+  fill(0, 40);
+  translate(w/2, w/2, w/2);
+  rotateY(-HALF_PI/2);
+  box(w);
+  popMatrix();
+
+  float sw = w / div;
+  translate(h, sw / 2, 0);
+  rotateY(-HALF_PI/2);
+
+  pushMatrix();
+  float sd = sw * (div - 1);
+  translate(
+    axyz[0].avg * sd,
+    axyz[1].avg * sd,
+    axyz[2].avg * sd);
+  fill(255, 160, 0);
+  noStroke();
+  sphere(18);
+  popMatrix();
+
+  for(int z = 0; z < div; z++) {
+    for(int y = 0; y < div; y++) {
+      for(int x = 0; x < div; x++) {
+        pushMatrix();
+        translate(x * sw, y * sw, z * sw);
+
+        noStroke();
+        if(moves[0][x][y][z])
+          fill(255, 0, 0, 200);
+        else if(moves[1][x][y][z])
+          fill(0, 0, 255, 200);
+        else if(
+        x == ixyz[0] &&
+          y == ixyz[1] &&
+          z == ixyz[2])
+          if(player == 0)
+            fill(255, 0, 0, 200);
+          else
+            fill(0, 0, 255, 200);
+        else
+          fill(0, 100);
+        box(sw / 3);
+
+        popMatrix();
+      }
+    }
+  }
+  
+  fill(0);
+  if(mousePressed && mouseButton == LEFT)
+    msg("defining boundaries");
+}
+
+void keyPressed() {
+  if(key == TAB) {
+    moves[player][ixyz[0]][ixyz[1]][ixyz[2]] = true;
+    player = player == 0 ? 1 : 0;
+  }
+}
+
+void mousePressed() {
+  if(mouseButton == RIGHT)
+    reset();
+}
+
+void reset() {
+  moves = new boolean[2][div][div][div];
+  for(int i = 0; i < sen; i++) {
+    n[i].reset();
+    cama[i].reset();
+    axyz[i].reset();
+  }
+}
+
+void msg(String msg) {
+  text(msg, 10, height - 10);
+} </span>
+	</code></pre>
+</div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+	<div class="col-sm-4">
+     <img id="portrait" src="./console_output.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="Processing screen">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> It is important to note that I showed you the previous error in the Arduino IDE, but this is a processing file and should be run using the processing software. Once I put this code into processing, I had one type casting error with printing a string without letting it be an object. I commented out the print and ran the machine. Despite not having any listed errors, nothing happened. I am not too sure why I can't see anything (a blank screen just quickly popped open and closed right away), so that is something that I plan on fixing in future labs per my discussion with Nathan.  </p>
+    </div>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
-
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> In this same discussion, we decided that I should focus on working through the math for the 3D interpolation necessary to draw a curve with a capacitance cube, so I wrote up a basic interpolation theorem and proof that essentially shows that for any set of 3D coordinate points drawn in a particular order, we can connect the dots and draw lines between each subsequent point to construct a continuous line through it. You can check out the full mathematical description in the image!</p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./theorem.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="Theorem I">
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Using this mathematical progress, I wanted to try implementing 3D visualization using my theory in an alternate programming schematic. I wanted to write a python script that could connect these dots! </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="col-sm-4">
+     <img id="portrait" src="./3D_lines.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="jagged graph">
+    <img id="portrait" src="./3D_graph_smooth.PNG" class="img-responsive margin" style="width:100%; height: auto;" alt="Double Wiring">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To do this, I wrote a python script that generated a set of 50 3D points, and then connected them all with lines between them in a set order. I then ran the script on these random points, and as you can see we get a very chaotic scribbly mess. This method works a lot better for points that are very close together to simply close gaps. To show off this advantage, I generated a few specific points that were quite close together and plotted them in the same way. Based on this image, we can see how a linear interpolation is quick to use, but only advantageous in certain highly proximital situations. Based on these results, I think a linear fill would only work for my project iff my point sampling rate is fast enough for the resulting curve to look decent. Regardless, if I want to create some sort of 3D model out of these curves, being able to smooth out the pointy joins of the lines would be ideal. Therefore, my next task would be to determine if I can generate a continuously differentiable curve that connects a set of ordered points in 3D space, regardless of their layout in the space.   </p>
+    </div>
+  </div>
+
+ <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="col-md-6">
+  <pre style="background-color:transparent; color:#ddd"><code class="language-python hljs">
+<span class="hljs-comment">#jagged linear fill
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+z = np.random.uniform(Low=0, high=30, size=(50,))
+x = np.random.uniform(Low=0, high=30, size=(50,))
+y = np.random.uniform(Low=0, high=30, size=(50,))
+
+a = []
+b = []
+c = []
+for item in x:
+    a.append(float(item))
+for item in y:
+    b.append(float(item))
+for item in z:
+    c.append(float(item))
+
+r = np.array(a)
+s = np.array(b)
+t = np.array(c)
+
+ax.set_xlabel("x axis")
+ax.set_ylabel("y axis")
+ax.set_zlabel("z axis")
+
+ax.scatter3D(r,s,zs=t, c=t, cmap='Greens')
+ax.plot3D(r,s,z)
+plt.show()
+
+ </span>
+</code></pre>
+</div>
+
+  <div class="col-md-6">
+  <pre style="background-color:transparent; color:#ddd"><code class="language-python hljs">
+<span class="hljs-comment">#spiral linear fill
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+z = np.arange(0, 10, .1)
+x = np.sin(z) + 0.01 * np.random.randn(len(z))
+y = np.cos(z) + 0.01 * np.random.randn(len(z))
+
+a = []
+b = []
+c = []
+for item in x:
+    a.append(float(item))
+for item in y:
+    b.append(float(item))
+for item in z:
+    c.append(float(item))
+
+r = np.array(a)
+s = np.array(b)
+t = np.array(c)
+
+ax.set_xlabel("x axis")
+ax.set_ylabel("y axis")
+ax.set_zlabel("z axis")
+
+ax.scatter3D(r,s,zs=t, c=t, cmap='Greens')
+ax.plot3D(r,s,z)
+plt.show()
+
+ </span>
+</code></pre>
+</div>
+</div>
+
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Well, despite the setbacks, I think I managed to make a good amount of progress on my project and the software/theory behind it! I look forward to finally finish debugging the arduino and processing code very soon! </p>
+    </div>
+  </div>
+
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
