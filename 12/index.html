@@ -13,46 +13,123 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../12/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Casting, Composites, Sewing</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, we learned how to cast resin moulds using a two part silicone gel. For my assignment this week, I casted a seashell and a ceramic donkey in said material before trying to make some chocolate replicas. </p>
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> First, I had to choose my artifacts. I chose a small conch shell I found on the beach when I was a kid and a ceramic donkey that I won in a middle school trivia competition. With the shell, I plan on cutting the mould into two pieces after it is cast, because the widest planar intersection of area runs through the middle of the piece. With the donkey, I plan on also trying to cut the mould in half to preserve the donkey's symmetrical features down its back and on its head. This piece seemed like a good candidate for pulling out at first, but it has features at all edges of the piece that prevent this method from being successful. I am a bit worried about the donkey's ears and legs in particular, and I am not too sure how I will preserve them. For now, we will just cut it in half and wiggle the donkey out. With a removal plan in place, I could begin making the silicone.  </p> 
+
+      <p>  </p>
+    </div>
+
+    <div class="col-sm-4">
+       <img id="portrait" src="./Shell.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="seashell">
+       <img id="portrait" src="./Donkey.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="donkey">
+    </div>
+  </div>
+
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+	<div class="col-sm-4">
+     <img id="portrait" src="./Mixing.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cast image">
+     <img id="portrait" src="./Pour.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Donkey not covered">
+     <img id="portrait" src="./Curing.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Donkey not covered">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Next, I combined the two parts of the silicone that we recieved in the kit in a 1:1 ratio and mixed them together with a wooden popsicle stick. It's important to remember to work in a well-ventilated area and to wear a mask and gloves while handling the liquid silicone, as the fumes are toxic! Once mixed, I had about 25 minutes to cast my objects. I first casted the seashell by pouring the mixture into some tupperware, placing the seashell inside, and pouring more mixture to cover it up. I repeated this process for the donkey, but there was a small problem. I barely did not have enough silicone to cover the top of the figurine, as my tupperware was a bit too wide. I decided that I would make it work while casting, which I will explain when I mould the chocolate later on. If I were to repeat this process, I would use a thinner bin to pour the silicone into or I would build a cardboard wall to modify the bin to a size that would work with the amount of material that I had. I let the mixture sit overnight to allow the rubber to harden.</p>
+    </div>
+  </div>
+
+   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> The next day, I separated the silicone from the tupperware using a popsicle stick before examining the result. I realized that both of my artifacts sat really close to the bottom of their containers, meaning the bottom surface, while existent, was quite fragile. Keeping this in mind while removing the objects, I cut both moulds in half along the z axis using an xacto knife to avoid rupturing that surface in any way. With these cuts, I had moulds ready for chocolate...except that donkey mould had a gaping hole up top from casting! To fix this, I placed this mould onto a baking tray, allowing that metal surface to stand in as a bottom plane for the chocolate. </p>
+    </div>
+  	<div class="col-sm-3">
+      <img id="portrait" src="./cut shell.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+     </div>
+     <div class="col-sm-3">
+      <img id="portrait" src="./peel shell.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+      </div>
+     <div class="col-sm-3">
+      <img id="portrait" src="./shell halves.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+      </div>
+     <div class="col-sm-3">
+      <img id="portrait" src="./donkey halves.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+    </div>
+  </div> 
+   </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Now I could melt the chocolate chips in the microwave and pour! I went a little heavy in the seashell mould, so there was a lot of excess chocolate around the edges of the mould. Additionally, this mould was a lot firmer than the donkey, so I decided to press the two halves together with some force to get a cleaner seam. In contrast, I lightly placed the top half of the donkey on top of the bottom half to ensure that I didn't break the already delicate edge of the top part of the mould. I put the two items in the fridge and allowed them to harden. Time for a movie break!</p>
+    </div>
+    <div class="col-sm-4">
+     <img id="portrait" src="./choco pour.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="chocolate pour">
+    </div>
+</div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> And that's it! I popped the chocolates out of the moulds to reveal a really fantastic-looking seashell and a...rugged-looking donkey. I think what made this cast so difficult was preserving the edge features, as some were buried under a layer of silicone in the pouring region. I think if I would have overfilled the chocolate cavity and had a firmer mould to press the halves together, the edges of the features would have looked a lot cleaner. Despite the donkey wonkiness, I am pretty pleased with the results. </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-6">
+      <img id="portrait" src="./choco donkey.jpg" class="img-responsive margin" style="width:98%; height: auto;" alt="choco donkey">
+     </div>
+    <div class="col-md-6">
+    <img id="portrait" src="./choco shell.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="choco seashell">
+    <img id="portrait" src="./choco shell front.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="choco seashell">
+    </div>
+  </div> 
+
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
