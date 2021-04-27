@@ -13,46 +13,75 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
-}
-</script>
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../15/index.html">Project</a>
+    <a href="../12/index.html">This Week</a>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Project Integration</h3>
+    </div>
+  </div> 
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> This week, per my discussion with Nathan about my coursework this week, I tried to get as much done as possible on my project as I could. I was able to get a very rough prototype together based on the capacitance content from week 6. </p>
+    </div>
   </div>
 
- 
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> First, I made the cube and taped the wires to each plate, plugging each one into its own respective digital port. Like the capacitance example from week 6, these would be the recieving plates. Next, I wired up an additional capacitance plate on a resistance circuit on a breadboard so that it is connected to the A0 analog port. The design is a bit...rough...but it should work in theory. Now I could take a stab at the code.   </p> 
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+   <div class="col-sm-6">
+      <img id="portrait" src="./plates.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+     </div>
+     <div class="col-sm-6">
+      <img id="portrait" src="./wiring.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="split moulds from objects">
+      </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> With the code, my goal was to just get the three plate values going to serial at once. To do this, I copied the code from the tutorial for capacitance in week 6. Modifying the print to serial statement to display for all three digital pins of output in serial. Thus, we have a way to display 3d capacitance! I am really happy that I was able to make some progress, and I look forward to getting further along after my exam!  </p> 
+    </div>
+  </div>
+
+
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
