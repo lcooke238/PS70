@@ -46,10 +46,10 @@
 
   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-xl-12">
-      <h4 style="padding-left: 5%">Motivations</h4>
+      <h4 style="padding-left: 5%;">Motivations</h4>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> After a few weeks of class, I finally that I wanted to explore more applications of foil capacitance sensors. These plates measure capacitance, or how two conductive objects respond to a change in voltage. Essentially, the closer an object gets to the plate, the greater the current that a sensor reads. I also really like to draw, despite not being the best at it, making representing 3D objects on a piece of paper extremely difficult. So, I figured why not design a device to render my 3D mid-air sketches as a 2D picture? This way I could map coordinates to the changes in capacitance when I waved my hand over some plates, not to mention that it is a really fun way to actually produce what seems like sorcery with midair hand motions actually being represented on a computer screen. With this thought in mind, I could finally begin designing and building. </p>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> In reasearching for this project, I came upon a make tutorial for a 3D capacitance sensor linked below: </p>
-      <div style="padding-left: 5%; margin-top: -1vh;">
+      <div style="margin-top: -1vh; padding-left: 5%;">
         <a href="https://www.instructables.com/DIY-3D-Controller/" style="font-size: 1.9vw;">DIY 3D Controller Instructable</a>
       </div>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Ultimately though, besides the physical cube structure, I had to abandon the tutorial and build the circuit and write my code based on what I had learned in lab and previous experience. Let's get started! </p>
@@ -58,7 +58,7 @@
 
   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-xl-12">
-      <h4 style="padding-left: 5%">Materials</h4>
+      <h4 style="padding-left: 5%;">Materials</h4>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 1 8 in. x 8 in. cardboard box </p>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 3 7.75 in. x 7.75 in. smooth aluminum foil sheets </p>
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 1 roll of electrical tape </p>
@@ -70,121 +70,173 @@
     </div>
   </div>
 
-  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-    <div class="col-md-8">
-      <h4 style="padding-left: 5%">The Build</h4>
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> First, in lab I followed the tutorial to build a single linear carriage system that depended on a stepper motor. I spent a lot of time with sandpaper and pliers removing 3D printer supports and sanding the edges of the plywood parts on the carriage, focusing on the outer edges of the wood where I would be touching the machine and on the pieces where multiple parts would have to slide on each other to try and minimize resistance. I then wired and coded this carriage using the tutorial from Tuesday's lab, and I ended up getting the machine to work after a few hours! </p>
+  <div class="row" style="margin-top: 8vh; margin-bottom: -6vh;">
+    <div class="col-xl-12">
+      <h4 style="padding-left: 5%;">The Build</h4>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;padding-left: 5%; padding-right: 5%;">
+    <div class="col-sm-4">
+      <img id="portrait" src="./cardboardFrame.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cardboard Frame">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 1. cut the cardboard box at its edges so that three faces of the box are still connected at a corner. This cardboard will be the frame for your capacitance sensors. </p>
     </div>
     <div class="col-sm-4">
-      <iframe width=100% height=300vh src="https://www.youtube.com/embed/M6k9kTZdEhQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </div>
-
-<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-	<div class="col-sm-4">
-     <img id="portrait" src="./finalDoubleBuild.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Final Double Build">
-    </div>
-    <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> After building one carriage to traverse one axis, I duplicated the process for a second carriage, only to realize later that I would have to take one of them apart to attach an angle bracket to the stepper motor base. I realized then that it would have been quite useful to sketch out my design idea before throwing parts together, but I suppose a lesson like this one really sticks when you have to suffer the consequences. As if that wasn't bad enough, the bolts we used to hold the bearings in place on the carriages would not fit through these brackets, so I had to come up with another way to attach the two pieces.  </p>
-    </div>
-  </div>
-
-   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-    <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I dug through the kit and I found these thin yet surprisingly long bolts and some washers. Using the washers around the bolt head to widen the base so it would not fall through the bracket, I attached the wood piece to the angle bracket using four of these screws. I also had the foresight to insert the bearing bolts into the wood piece before attaching it to the bracket, meaning I could throw on a washer and the bearing before sealing everything with some nuts.</p>
+      <img id="portrait" src="./foilTaped.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cardboard Frame">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 2. take your foil sheets and tape them centered on each interior cardboard wall. For now, only tape the outer edges to leave yourself room to add circuitry later on. </p>
     </div>
     <div class="col-sm-4">
-      <img id="portrait" src="./bearing.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="bearing bracket close up">
+      <img id="portrait" src="./clips.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cardboard Frame">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 3. attach your alligator clips to each sheet of foil and tape everything in place. When doing this, be sure that each foil does not touch another by taping the inner edges with electrical tape. </p>
     </div>
   </div>
 
-  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="row" style="margin-top: 8vh; margin-bottom: -6vh;">
     <div class="col-xl-12">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> One flaw in this design was the excess width it added to the carriage. The excess length on thin bolts from the kit pushed the bearing further away from the wood, meaning the press-fit wooden pieces would barely fit into place. I ultimately ended up taking the top piece of the carriage off to relieve the immense amount of stress on those wooden pieces to stay in place, allowing the carriage to slide with much more ease. To fix this problem, I would either re-cut the outermost pieces of the carriage to accomodate this new width or find a slightly thinner bolt that would both fit through the bracket and secure the bearings. </p>
+      <h4 style="padding-left: 5%">The Electronics</h4>
     </div>
   </div>
 
-  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-  <div class="col-sm-4">
-     <img id="portrait" src="./wiring 21.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Double Wiring">
-    <img id="portrait" src="./wiring 22.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Double Wiring">
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;padding-left: 5%; padding-right: 5%;">
+    <div class="col-sm-4">
+      <img id="portrait" src="./firstCirc.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="first plug">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 4. Connect digital pin 5 of your Metro M0 to a row of your breadboard. This wire will send your output voltage to each sensor. For each of your three resistors, connect the gold-striped end to the row with your previous wire, and connect the other end to its own row of the breadboard. Be sure that the wires on your resistors don't touch each other!  </p>
     </div>
-    <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To accomodate two carriages, I was going to need a bigger breadboard and double the wires. I ended up duplicating the stepper motor control setup from the tutorial, combining the power fed to the motors and the motor drivers in a single circuit on a single board. Because I was using the Huzzah, I ended up refering to a pinout from the product website to find two pins that I could use to control the second stepper motor. Now, all I had to do when writing code for my double carriage was to write up the pin information and setup two separate stepper objects so I could modify each one individually. </p>
+    <div class="col-sm-4">
+      <img id="portrait" src="./secondCirc.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cardboard Frame">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 5. Place two wires into the breadboard at each new row that a resistor touches, for a total of six added wire pieces. Resistor 1 (R1) will have one wire connecting to digital pin 2 of your metro, resistor 2 (R2) will have one wire connecting to digiral pin 3, and resistor 3 (R3) will have one wire connecting to digital pin 4. </p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./fullCirc.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Cardboard Frame">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 6. With the three remaining wires, R1's wire should connect to the plate that will be your y axis, R2's wire should connect to the plate that will be your x axis, and R3's wire should connect to the plate that will be your z axis. Use the corresponding alligator clips to attach. To avoid intereference, use electrical tape to wrap each clip and its wire together. </p>
     </div>
   </div>
 
-   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="row" style="margin-top: 8vh; margin-bottom: -6vh;">
     <div class="col-xl-12">
-       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I decided to make the grid travel diagonally between two opposing corners on an infinite loop, but finding the correct values to feed into the position function turned out to be a bit harder than I thought. Throughout this process, my tests depended on manual calibration, meaning I had to move my carriages back to the origin point after each test while the motors were disengaged. But, I found that whenever I went to rewrite the Huzzah board, the previous program would continue to run, meaning my manual calibration would get undone and I would have to quickly unplug the board after uploading and before execution. Because of this calibration problme, writing a self-contained looping program turned out to be a strategic design choice, as each movement undid the previous movement and prevented any damage from occuring.   </p>
+      <h4 style="padding-left: 5%">The Code</h4>
     </div>
   </div>
 
-  <pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
-<span class="hljs-comment">#include &lt;AccelStepper.h&gt;
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;padding-left: 5%; padding-right: 5%;">
+    <div class="col-md-6">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 7. Matching our pins from the building section, we can write a program in arduino to read each sensor's value as a 3D point in serial. I defined the Metro M0 pin numbers I used at the top so you can modify the values to match your setup.   </p>
+      <pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">#include &lt;CapacitiveSensor.h&gt;
 
-const int stepPinx = 13;  // blue
-const int dirPinx = 12;   // orange
+//ports
+ const int xPlate = 3;
+ const int yPlate = 2;
+ const int zPlate = 4;
+ const int receive = 5;
 
-const int stepPiny = 27;  // blue
-const int dirPiny = 33;   // orange
+//sensor definitions
+CapacitiveSensor x = CapacitiveSensor(receive, xPlate);
+CapacitiveSensor y = CapacitiveSensor(receive, yPlate);
+CapacitiveSensor z = CapacitiveSensor(receive, zPlate);
 
-// Define a stepper and the pins it will use
-AccelStepper stepperx(1, stepPinx, dirPinx);
-AccelStepper steppery(1, stepPiny, dirPiny); 
-
-void setup()
-{
+void setup() {   
+  Serial.begin(115200); 
 }
 
-void loop()
-{
+void loop() {
+  long sensorValueX = x.capacitiveSensor(1000);
+  long sensorValueY = y.capacitiveSensor(1000);
+  long sensorValueZ = z.capacitiveSensor(1000);
+  String printer = "(" + String(sensorValueX)+ ", " +
+                   String(sensorValueY)+ ", " +
+                   String(sensorValueZ)+ ")";
+  Serial.println(printer);
+}
 
-  if (steppery.distanceToGo() == 0 && stepperx.distanceToGo() == 0)
-  {
-    // Random change to speed, position and acceleration
-    // Make sure we dont get 0 speed or accelerations
-    delay(1000);
-    steppery.moveTo(1000);
-    steppery.setMaxSpeed(500);
-    steppery.setAcceleration(500);
 
-    delay(1000);
-    stepperx.moveTo(1000);
-    stepperx.setMaxSpeed(500);
-    stepperx.setAcceleration(500);
-  }
-  steppery.run();
-  stepperx.run();
 
-  if (steppery.distanceToGo() == 0 && stepperx.distanceToGo() == 0)
-  {
-    // Random change to speed, position and acceleration
-    // Make sure we dont get 0 speed or accelerations
-    delay(1000);
-    steppery.moveTo(-1000);
-    steppery.setMaxSpeed(500);
-    steppery.setAcceleration(500);
 
-    delay(1000);
-    stepperx.moveTo(-1000);
-    stepperx.setMaxSpeed(500);
-    stepperx.setAcceleration(500);
-  }
-  steppery.run();
-  stepperx.run();
-} </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</span>
 </code></pre>
-
-  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
-    <div class="col-md-8">
-      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> And there you have it! I am really excited that I got this 2D system to work, but I wanted to do a lot more, especially surrounding capacitance, than I ended up being able to do. Because this mapping idea is so central to my project I plan on using this system that I've build to tangibly test my progress with the capacitance mapping, and I am in the works of assembling a small prototype using the smooth copper plates and their storage paper from the kit. I am excited to incorporate that in the future and I am proud of what I accomplished this week!</p>
     </div>
-    <div class="col-sm-4">
-      <iframe width=100% height=300vh src="https://www.youtube.com/embed/F9CkaZjZxuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="col-md-6">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 8. Now, we can write a python script to read this serial data and convert it into a graph. One advantage of using python is that matplotlib will autoscale every axis, meaning we can simply use our raw coordinate information. </p>
+      <pre style="background-color:transparent; color:#ddd"><code class="language-python">
+<span class="comment">import serial
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig = plt.figure()
+ax = plt.axes(projection='3d')
+
+ser = serial.Serial('COM5') #replace 'COM5' with your own serial address
+ser.flushInput()
+
+#storage arrays
+x = []
+y = []
+z = []
+
+#clean serial data and add point information to respective storage arrays
+try:
+    while True:
+        ser_bytes = ser.readline()
+        decoded_bytes = ser_bytes[0:len(ser_bytes)-2].decode("utf-8")
+        clean_point = decoded_bytes.replace(" ", "")
+        cleaner_point = clean_point.strip("()")
+        vals = cleaner_point.split(",")
+        x.append(float(vals[0]))
+        y.append(float(vals[1]))
+        z.append(float(vals[2]))
+        print(decoded_bytes)
+        # break infinite data read with Ctrl+c keypress
+except KeyboardInterrupt:
+    print("Keyboard Interrupt")
+    pass
+
+# convert storage arrays into numpy arrays
+r = np.array(x)
+s = np.array(y)
+t = np.array(z)
+
+# label axes
+ax.set_xlabel("x axis")
+ax.set_ylabel("y axis")
+ax.set_zlabel("z axis")
+
+# plot points and connecting lines before showing us
+ax.scatter3D(r, s, zs=t, c=t, cmap='Greens')
+ax.plot3D(r, s, z)
+plt.show() </span>
+</code></pre>
     </div>
   </div>
 
+  <div class="row" style="margin-top: -3vh; margin-bottom: -6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Beware of some common python errors with the code. First, the program will read your data until you type Ctrl-C into the console that the program is operating in, so if you cannot make the program stop while running it, be sure that you have your program running in a terminal environment! Also, be sure to modify the serial port that you are reading from based on your computer (replacing "COM5"). </p>
+
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Finally, upload your arduino script to your metro M0 and run your python script with the board online. Your very own 3D drawing machine is ready!</p>
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 14vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <h4 style="padding-left: 5%;">Final Thoughts</h4>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Overall, I am pretty satisfied with my final product. I learned so much in designing both the code and the circuitry from scratch, and I definitely feel a lot more confident in my abilities because of it. I look forward to continuing to grow in the makerspace over the next three years! </p>
+    </div>
+  </div>
 
   <script>
     var prevScrollpos = window.pageYOffset;
