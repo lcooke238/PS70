@@ -13,46 +13,199 @@
 </head>
 <body>
 
-<script>
-var prevScrollpos = window.pageYOffset;
-window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    document.getElementById("navbar").style.top = "0";
-  } else {
-    document.getElementById("navbar").style.top = "-100px";
-  }
-  prevScrollpos = currentScrollPos;
+  <script>
+    var elmnt = document.getElementById("luther");
+    function LutherStop() {
+      elmnt.scrollIntoView();
+    }
+  </script>
+
+  <div class="container-fluid" id="top">
+    <div id="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../01_intro/index.html">About</a>
+    <a href="../14/index.html">Project</a>
+    <a href="../14/index.html">This Week</a>
+  </div>
+
+  <div class="row" style="margin-top: 30px;">
+    <div class="col-xl-12" style="margin-top: 30px; text-align: center;">
+      <h3>Final Project: 3D Drawing</h3>
+    </div>
+  </div> 
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6">
+     <iframe width=100% height=394vh src="https://www.youtube.com/embed/CSxfAarvmw4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="col-md-3">
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <h4 style="padding-left: 5%">Motivations</h4>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> After a few weeks of class, I finally that I wanted to explore more applications of foil capacitance sensors. These plates measure capacitance, or how two conductive objects respond to a change in voltage. Essentially, the closer an object gets to the plate, the greater the current that a sensor reads. I also really like to draw, despite not being the best at it, making representing 3D objects on a piece of paper extremely difficult. So, I figured why not design a device to render my 3D mid-air sketches as a 2D picture? This way I could map coordinates to the changes in capacitance when I waved my hand over some plates, not to mention that it is a really fun way to actually produce what seems like sorcery with midair hand motions actually being represented on a computer screen. With this thought in mind, I could finally begin designing and building. </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> In reasearching for this project, I came upon a make tutorial for a 3D capacitance sensor linked below: </p>
+      <div style="padding-left: 5%; margin-top: -1vh;">
+        <a href="https://www.instructables.com/DIY-3D-Controller/" style="font-size: 1.9vw;">DIY 3D Controller Instructable</a>
+      </div>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Ultimately though, besides the physical cube structure, I had to abandon the tutorial and build the circuit and write my code based on what I had learned in lab and previous experience. Let's get started! </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <h4 style="padding-left: 5%">Materials</h4>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> 1 8 in. x 8 in. cardboard box </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 3 7.75 in. x 7.75 in. smooth aluminum foil sheets </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 1 roll of electrical tape </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 3 dual-ended alligator clip wires </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 1 breadboard </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 7 pieces of wire </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 3 10 Mega ohm resistors </p>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%; margin-top: -2vh;"> 1 Metro M0 Express and cable</p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <h4 style="padding-left: 5%">The Build</h4>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> First, in lab I followed the tutorial to build a single linear carriage system that depended on a stepper motor. I spent a lot of time with sandpaper and pliers removing 3D printer supports and sanding the edges of the plywood parts on the carriage, focusing on the outer edges of the wood where I would be touching the machine and on the pieces where multiple parts would have to slide on each other to try and minimize resistance. I then wired and coded this carriage using the tutorial from Tuesday's lab, and I ended up getting the machine to work after a few hours! </p>
+    </div>
+    <div class="col-sm-4">
+      <iframe width=100% height=300vh src="https://www.youtube.com/embed/M6k9kTZdEhQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+<div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+	<div class="col-sm-4">
+     <img id="portrait" src="./finalDoubleBuild.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Final Double Build">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> After building one carriage to traverse one axis, I duplicated the process for a second carriage, only to realize later that I would have to take one of them apart to attach an angle bracket to the stepper motor base. I realized then that it would have been quite useful to sketch out my design idea before throwing parts together, but I suppose a lesson like this one really sticks when you have to suffer the consequences. As if that wasn't bad enough, the bolts we used to hold the bearings in place on the carriages would not fit through these brackets, so I had to come up with another way to attach the two pieces.  </p>
+    </div>
+  </div>
+
+   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I dug through the kit and I found these thin yet surprisingly long bolts and some washers. Using the washers around the bolt head to widen the base so it would not fall through the bracket, I attached the wood piece to the angle bracket using four of these screws. I also had the foresight to insert the bearing bolts into the wood piece before attaching it to the bracket, meaning I could throw on a washer and the bearing before sealing everything with some nuts.</p>
+    </div>
+    <div class="col-sm-4">
+      <img id="portrait" src="./bearing.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="bearing bracket close up">
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> One flaw in this design was the excess width it added to the carriage. The excess length on thin bolts from the kit pushed the bearing further away from the wood, meaning the press-fit wooden pieces would barely fit into place. I ultimately ended up taking the top piece of the carriage off to relieve the immense amount of stress on those wooden pieces to stay in place, allowing the carriage to slide with much more ease. To fix this problem, I would either re-cut the outermost pieces of the carriage to accomodate this new width or find a slightly thinner bolt that would both fit through the bracket and secure the bearings. </p>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+  <div class="col-sm-4">
+     <img id="portrait" src="./wiring 21.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Double Wiring">
+    <img id="portrait" src="./wiring 22.jpg" class="img-responsive margin" style="width:100%; height: auto;" alt="Double Wiring">
+    </div>
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> To accomodate two carriages, I was going to need a bigger breadboard and double the wires. I ended up duplicating the stepper motor control setup from the tutorial, combining the power fed to the motors and the motor drivers in a single circuit on a single board. Because I was using the Huzzah, I ended up refering to a pinout from the product website to find two pins that I could use to control the second stepper motor. Now, all I had to do when writing code for my double carriage was to write up the pin information and setup two separate stepper objects so I could modify each one individually. </p>
+    </div>
+  </div>
+
+   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> I decided to make the grid travel diagonally between two opposing corners on an infinite loop, but finding the correct values to feed into the position function turned out to be a bit harder than I thought. Throughout this process, my tests depended on manual calibration, meaning I had to move my carriages back to the origin point after each test while the motors were disengaged. But, I found that whenever I went to rewrite the Huzzah board, the previous program would continue to run, meaning my manual calibration would get undone and I would have to quickly unplug the board after uploading and before execution. Because of this calibration problme, writing a self-contained looping program turned out to be a strategic design choice, as each movement undid the previous movement and prevented any damage from occuring.   </p>
+    </div>
+  </div>
+
+  <pre style="background-color:transparent; color:#ddd"><code class="language-arduino hljs">
+<span class="hljs-comment">#include &lt;AccelStepper.h&gt;
+
+const int stepPinx = 13;  // blue
+const int dirPinx = 12;   // orange
+
+const int stepPiny = 27;  // blue
+const int dirPiny = 33;   // orange
+
+// Define a stepper and the pins it will use
+AccelStepper stepperx(1, stepPinx, dirPinx);
+AccelStepper steppery(1, stepPiny, dirPiny); 
+
+void setup()
+{
 }
-</script>
 
-<div class="container-fluid">
-  <h3>Week 1: Introduction </h3> <br> 
-  <div id="navbar">
-  <a href="../index.html">Home</a>
-  <a href="#news">About</a>
-  <a href="#contact">Project</a>
-  <a href="#contact">This Week</a>
+void loop()
+{
+
+  if (steppery.distanceToGo() == 0 && stepperx.distanceToGo() == 0)
+  {
+    // Random change to speed, position and acceleration
+    // Make sure we dont get 0 speed or accelerations
+    delay(1000);
+    steppery.moveTo(1000);
+    steppery.setMaxSpeed(500);
+    steppery.setAcceleration(500);
+
+    delay(1000);
+    stepperx.moveTo(1000);
+    stepperx.setMaxSpeed(500);
+    stepperx.setAcceleration(500);
+  }
+  steppery.run();
+  stepperx.run();
+
+  if (steppery.distanceToGo() == 0 && stepperx.distanceToGo() == 0)
+  {
+    // Random change to speed, position and acceleration
+    // Make sure we dont get 0 speed or accelerations
+    delay(1000);
+    steppery.moveTo(-1000);
+    steppery.setMaxSpeed(500);
+    steppery.setAcceleration(500);
+
+    delay(1000);
+    stepperx.moveTo(-1000);
+    stepperx.setMaxSpeed(500);
+    stepperx.setAcceleration(500);
+  }
+  steppery.run();
+  stepperx.run();
+} </span>
+</code></pre>
+
+  <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-md-8">
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> And there you have it! I am really excited that I got this 2D system to work, but I wanted to do a lot more, especially surrounding capacitance, than I ended up being able to do. Because this mapping idea is so central to my project I plan on using this system that I've build to tangibly test my progress with the capacitance mapping, and I am in the works of assembling a small prototype using the smooth copper plates and their storage paper from the kit. I am excited to incorporate that in the future and I am proud of what I accomplished this week!</p>
+    </div>
+    <div class="col-sm-4">
+      <iframe width=100% height=300vh src="https://www.youtube.com/embed/F9CkaZjZxuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 
-  <img src="../CharlesRiver.png" class="img-responsive margin" style="width:100%" alt="Sew">
 
-  <div class="row">
-    
-      <p> Here is an image: </p>
-
-      <img src="./sew.png" class="img-responsive margin" style="width:20%" alt="Sew">
-
-      <p> And here is a	<a href='../index.html'>link</a>.
-
-      </p>
-   
-  </div>
-
- 
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-100px";
+      }
+      prevScrollpos = currentScrollPos;
+    }
+  </script>
   
   
 </div>
+
+  <div class="row">
+    <div class="col-xl-12" style="margin-bottom: 30px;">
+      <p style="text-align: center; font-family: 'Titillium Web', sans-serif; color: white; "> © Lauren Cooke 2021 </p>
+  </div>
 
 </body>
 </html>
