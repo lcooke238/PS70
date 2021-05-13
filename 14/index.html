@@ -55,6 +55,17 @@
       <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Ultimately though, besides the physical cube structure, I had to abandon the tutorial and build the circuit and write my code based on what I had learned in lab and previous experience. Let's get started! </p>
     </div>
   </div>
+    
+   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
+    <div class="col-xl-12">
+      <h4 style="padding-left: 5%;">What is Capacitance?</h4>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> In this project, capacitance, or the ability of a circuit to store energy, was crucial to allowing my hand to draw shapes in the air. The circuit that I built uses the capacitiveTouch library's capacitor design so that I could use the library in the code. Essentially, we send charge to a foil plate over a strong resistor via a send port on our microcontroller, while a resistor-less wire connected to a different arduino report recieves the signal. By timing how long it takes for the recieve wire to reach the built up charge of our sent signal, we can measure how close an object like my hand is to the foil plate. With this design, the closer that I put my hand to the foil, the longer that time would take as my hand absorbed more energy. You can check out the library and its description of the circuit for yourself in the link below. </p>
+      <div style="margin-top: -1vh; padding-left: 5%;">
+        <a href="https://playground.arduino.cc/Main/CapacitiveSensor/" style="font-size: 1.9vw;">Capacitive Touch Library</a>
+      </div>
+      <p style="font-size: 1.9vw; width: 95%; text-align: left; padding-left: 5%;"> Now that we have a better understanding of how capacitance works, we can proceed with our build. </p>
+    </div>
+  </div>
 
   <div class="row" style="margin-top: 8vh; margin-bottom: 6vh;">
     <div class="col-xl-12">
